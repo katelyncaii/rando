@@ -11,7 +11,7 @@ def stalin_sort(nums):
         pointer += 1
     return new_nums, pointer
 
-#TEST?
+#tests?
 h = [1,2,3,4,5]
 stalined_h, p = stalin_sort(h)
 assert stalined_h == h
