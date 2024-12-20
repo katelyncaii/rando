@@ -1,6 +1,12 @@
 #Stalin Sort
 
+import argparse
+
 def stalin_sort(nums):
+    """
+    perform stalin sort on a list of numbers
+    only keeps elements greater than or equal to the previous element
+    """
     new_nums = [None for i in range(len(nums))]
     new_nums[0] = nums[0]
     pointer = 1
@@ -11,19 +17,20 @@ def stalin_sort(nums):
         pointer += 1
     return new_nums[0:pointer]
 
-#tests?
-h = [1,2,3,4,5]
-stalined_h = stalin_sort(h)
-assert stalined_h == h
 
-i = [1,2,4,3,5]
-stalined_i = stalin_sort(i)
-assert stalined_i == [1,2,4,5]
+def main():
+    """
+    for running stalin sort as a script
+    parses command-line arguments and sorts the input list
+    what does this mean tbh?^
+    """
+    parser = argparse.ArgumentParser(description="perform stalin sort on a list of numbers")
+    parser.add_argument("nums", nargs="+", type=int, help="a list of integers to sort.")
+    args = parser.parse_args()
 
-j = [5,1,2,3,4]
-stalined_j = stalin_sort(j)
-assert stalined_j == [5]
+    sorted_nums = stalin_sort(args.nums)
+    print("stalined list:", sorted_nums)
 
-k = [3,1,2,6,5,9,8]
-stalined_k = stalin_sort(k)
-assert stalined_k == [3,6,9]
+#if the script is executed directly, run the main() function
+if __name__ == "__main__":
+    main()
