@@ -7,15 +7,15 @@ def stalin_sort(nums):
     perform stalin sort on a list of numbers
     only keeps elements greater than or equal to the previous element
     """
-    new_nums = [None for i in range(len(nums))]
-    new_nums[0] = nums[0]
+    stalined_nums = [None for i in range(len(nums))]
+    stalined_nums[0] = nums[0]
     pointer = 1
     for i in range(1,len(nums)):
-        if nums[i] < new_nums[pointer-1]:
+        if nums[i] < stalined_nums[pointer-1]:
             continue
-        new_nums[pointer] = nums[i]
+        stalined_nums[pointer] = nums[i]
         pointer += 1
-    return new_nums[0:pointer]
+    return stalined_nums[0:pointer]
 
 
 def main():
